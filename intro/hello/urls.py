@@ -9,5 +9,5 @@ urlpatterns = [
 
     # templates intro
     path('hi/', views.hi_view),
-    path('hi2/', views.hi2_view)
+    path('hi2/', views.hi2_view),
 ]

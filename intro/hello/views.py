@@ -21,3 +21,4 @@ def hi_view(request):
 
 def hi2_view(request):
     return render(request, 'hello.html')
+
