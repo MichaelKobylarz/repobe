@@ -1,8 +1,13 @@
 from django.urls import path
 
-from hello.views import hello_view
+from hello import views
 
 
 urlpatterns = [
-    path('main/', hello_view),
+    # view intro
+    path('', views.hello_view),
+
+    # templates intro
+    path('hi/', views.hi_view),
+    path('hi2/', views.hi2_view)
 ]
