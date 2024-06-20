@@ -5,6 +5,10 @@
     <title>Title</title>
 </head>
 <body>
-    {{ msg }}
+    {% if is_new_year %}
+        <h1 style="color: green">TAK</h1>
+    {% else %}
+        <h1 style="color: red">NIE</h1>
+    {% endif %}
 </body>
 </html>
