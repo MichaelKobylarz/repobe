@@ -73,3 +73,19 @@ def is_it_new_year(request):
         'isitnewyear.html',
         {'is_new_year': is_new_year}
     )
+
+
+def collection_view(request):
+
+    fruits = [
+        'jabłko',
+        'banan',
+        'winogrona',
+        'mandarynki'
+    ]
+
+    return render(
+        request,
+        'collection.html',
+        {'fruits': fruits}
+    )

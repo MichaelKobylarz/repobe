@@ -20,4 +20,5 @@ urlpatterns = [
     path('<str:name>/2/', views.name_view2),
 
     path('isitnewyear/', views.is_it_new_year),
+    path('collection/', views.collection_view),
 ]
