@@ -1,14 +1,20 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'scripts/script.js' %}"></script>
 </head>
 <body>
     {% if is_new_year %}
-        <h1 style="color: green">TAK</h1>
+        <h1 style="color: green;">TAK</h1>
     {% else %}
-        <h1 style="color: red">NIE</h1>
+        <h1 style="color: red;">NIE</h1>
+        <center>
+            <img src="{% static 'img/img1.png' %}">
+        </center>
     {% endif %}
 </body>
 </html>
