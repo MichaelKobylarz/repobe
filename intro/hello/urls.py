@@ -16,6 +16,8 @@ urlpatterns = [
     path('jurek/', views.jurek_view),
     path('jacek/', views.jacek_view),
     path('ksawier/', views.ksawier_view),
-    path('<str:name>/', views.name_view),
-    path('<str:name>/2/', views.name_view2)
+    # path('<str:name>/', views.name_view),
+    path('<str:name>/2/', views.name_view2),
+
+    path('isitnewyear/', views.is_it_new_year),
 ]

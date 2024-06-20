@@ -1,3 +1,5 @@
+import datetime
+
 from django.shortcuts import render, HttpResponse
 
 
@@ -46,7 +48,7 @@ def name_view(request, name):
     escaped_name = escape(name)
     print(escaped_name)
 
-    return HttpResponse(f"Witaj, {escaped_name}!")
+    return HttpResponse(f"Witaj, {name}!")
 
 
 # kontekst szablonu
@@ -55,4 +57,19 @@ def name_view2(request, name):
         request,
         'hello2.html',
         {"name": name}
+    )
+
+
+def is_it_new_year(request):
+
+    today = datetime.date.today()
+    if today.month == 1 and today.day == 1:
+        msg = "TAK"
+    else:
+        msg = "NIE"
+
+    return render(
+        request,
+        'isitnewyear.html',
+        {'msg': msg}
     )
