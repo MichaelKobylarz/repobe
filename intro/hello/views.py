@@ -84,8 +84,17 @@ def collection_view(request):
         'mandarynki'
     ]
 
+    person = {
+        "name": "Jan",
+        "surename": "Kowalski",
+        "age": 25
+    }
+
     return render(
         request,
         'collection.html',
-        {'fruits': fruits}
+        {
+            'fruits': fruits,
+            'person': person
+        }
     )

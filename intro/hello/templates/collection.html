@@ -40,6 +40,7 @@
         {{ fruits|length|add:2 }}
     </div>
 
+    <!--  Indeksowanie  -->
     <div>
         {{ fruits.0 }}
     </div>
@@ -47,6 +48,39 @@
     <div>
         {{ fruits.3 }}
     </div>
+
+    <!-- SŁOWNIKI -->
+    <!--  Po kluczu (dict lookup)  -->
+    <p>{{ person.name }} {{ person.surename }} {{ person.age }}</p>
+
+    <!--  Przeiterowanie się po słowniku  -->
+    <p>Klucze</p>
+    <p>{% for key in person %}
+        {{ key }}
+    {% endfor %}</p>
+
+    <p>Wartości</p>
+    <p>{% for value in person.values %}
+        {{ value }}
+    {% endfor %}</p>
+
+    <p>Klucze i wartości</p>
+    <ul>
+    {% for key, value in person.items %}
+        <li>{{ key }} {{ value }}</li>
+    {% endfor %}
+    </ul>
+
+    <!-- Przeiterowanie się po liście -->
+    <ul>
+    {% for fruit in fruits %}
+        {% if forloop.first %}
+            Zawartość zmiennej kontekstowej forloop przy pierwszym obrocie pętli: {{ forloop }}
+        {% endif %}
+        <li>{{ forloop.counter0 }} {{ fruit }}</li>
+    {% endfor %}
+    </ul>
+
 
 </body>
 </html>
