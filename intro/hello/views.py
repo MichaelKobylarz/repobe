@@ -2,6 +2,8 @@ import datetime
 
 from django.shortcuts import render, HttpResponse
 
+from hello.utils import Cow
+
 
 # Create your views here.
 def hello_view(request):
@@ -90,11 +92,14 @@ def collection_view(request):
         "age": 25
     }
 
+    cow = Cow("Mućka", 3)
+
     return render(
         request,
         'collection.html',
         {
             'fruits': fruits,
-            'person': person
+            'person': person,
+            'cow': cow
         }
     )

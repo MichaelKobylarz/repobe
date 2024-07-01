@@ -5,6 +5,15 @@
     <title>Title</title>
 </head>
 <body>
+    <!-- komentarze DTL -->
+    {# {% nie_istnieje_sobie %} moj komentarz jednolinikowy #}
+
+    {% comment %}
+        To jest moj komentarz wielolinijkowy
+        {% nie_istnieje_sobie %}
+    {% endcomment %}
+
+    <!--  Praca z listami  -->
     <!-- wyświetlenie listy -->
     {{ fruits }}
 
@@ -14,14 +23,6 @@
         <li>{{ fruit }}</li>
     {% endfor %}
     </ul>
-
-    <!-- komentarze DTL -->
-    {# {% nie_istnieje_sobie %} moj komentarz jednolinikowy #}
-
-    {% comment %}
-        To jest moj komentarz wielolinijkowy
-        {% nie_istnieje_sobie %}
-    {% endcomment %}
 
     <!-- Filtry -->
     <div>
@@ -49,7 +50,7 @@
         {{ fruits.3 }}
     </div>
 
-    <!-- SŁOWNIKI -->
+    <!-- Praca ze słownikami -->
     <!--  Po kluczu (dict lookup)  -->
     <p>{{ person.name }} {{ person.surename }} {{ person.age }}</p>
 
@@ -81,6 +82,10 @@
     {% endfor %}
     </ul>
 
+    <!--  Praca z obiektami  -->
+    <p>{{ cow }}</p>
+    <p>{{ cow.name }}</p>
+    <p>{{ cow.speak }}</p>
 
 </body>
 </html>
