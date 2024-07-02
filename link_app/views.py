@@ -13,3 +13,11 @@ def second_view(request):
         request,
         'link_app/second.html'
     )
+
+
+def third_view(request, param):
+    return render(
+        request,
+        'link_app/third.html',
+        {'param': param}
+    )
