@@ -23,4 +23,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('hello/', include('hello.urls')),
     path('inheritance/', include('inheritance.urls')),
+    path('link/', include('link_app.urls')),
 ]
