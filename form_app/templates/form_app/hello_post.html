@@ -9,8 +9,8 @@
     Witaj {{ name }}!
 {% endif %}
 
-  <form>
-  {# <form action="{% url 'form_app:show' %}"> #}
+  <form method="POST">
+      {% csrf_token %}
      <input type="text" name="first_name">
      <input type="submit" value="Przywitaj mnie">
  </form>
