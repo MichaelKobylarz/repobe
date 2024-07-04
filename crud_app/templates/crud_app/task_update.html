@@ -11,5 +11,6 @@
         <input type="text" name="task_name" value="{{ task }}">
         <input type="submit" value="Zmodyfikuj">
     </form>
+    <a href="{% url 'crud_app:task_list_view' %}"><button>Lista zadań</button></a>
 </body>
 </html>

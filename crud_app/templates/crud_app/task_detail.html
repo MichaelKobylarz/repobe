@@ -6,6 +6,7 @@
 </head>
 <body>
     <h3>Szczegóły zadania o numerze {{ task_id }}</h3>
-    {{ task }}
+    <p>{{ task }}</p>
+    <a href="{% url 'crud_app:task_list_view' %}"><button>Lista zadań</button></a>
 </body>
 </html>

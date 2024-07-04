@@ -5,10 +5,14 @@
     <title>Title</title>
 </head>
 <body>
+    <a href="{% url 'crud_app:task_create_view' %}"><button>Nowe zadanie</button></a>
     <h3>Lista zadań</h3>
     <ol>
         {% for task in tasks %}
-            <li>{{ task }}</li>
+            <li><a href="{% url 'crud_app:task_detail_view' forloop.counter %}">{{ task }}</a>
+                <a href="{% url 'crud_app:task_update_view' forloop.counter %}"><button>Edytuj</button></a>
+                <a href="{% url 'crud_app:task_delete_view' forloop.counter %}"><button>Usuń</button></a>
+            </li>
         {% endfor %}
     </ol>
 </body>
