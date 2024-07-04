@@ -48,3 +48,26 @@ def task_detail_view(request, task_id):
 
     else:
         raise Http404()
+
+
+# U z CRUD
+def task_update_view(request, task_id):
+    if not 0 < task_id <= len(TASKS):
+        raise Http404()
+    else:
+        task = TASKS[task_id-1]
+
+    if request.method == "GET":
+        return render(
+            request,
+            'crud_app/task_update.html',
+            {'task_id': task_id, 'task': task}
+        )
+    elif request.method == "POST":
+        data = request.POST
+
+        task_new_name = data.get('task_name')
+        if task_new_name:
+            TASKS[task_id-1] = task_new_name
+
+        return redirect('crud_app:task_list_view')
