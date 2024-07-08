@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="task_id">Nazwa zadania:</label>
+        <input type="text" name="task" id="task_id">
+        <input type="submit" value="Zarejestruj">
+    </form>
+    <a href="{% url 'crud_app2:task_list_view' %}"><button>Lista zadań</button></a>
+</body>
+</html>
