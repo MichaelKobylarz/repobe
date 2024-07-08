@@ -1,9 +1,6 @@
 from django.shortcuts import render, redirect, Http404
 
-TASKS = [
-    'kodowanie',
-    'zmywanie'
-]
+from crud_app2.models import Task
 
 
 # C z CRUD
@@ -18,7 +15,7 @@ def task_create_view(request):
 
         task = data.get('task')
         if task:
-            TASKS.append(task)
+            Task.objects.create(name=task)
 
         return redirect('crud_app2:task_list_view')
 
@@ -26,7 +23,7 @@ def task_create_view(request):
 # R z CRUD (lista)
 def task_list_view(request):
 
-    tasks = TASKS
+    tasks = Task.objects.all()
 
     return render(
         request,
@@ -37,8 +34,10 @@ def task_list_view(request):
 
 # R z CRUD (szczegółu)
 def task_detail_view(request, task_id):
-    if 0 < task_id <= len(TASKS):
-        task = TASKS[task_id-1]
+    tasks = Task.objects.filter(id=task_id)
+    if tasks:
+        task = tasks[0]
+        task_id = task.id
 
         return render(
             request,
@@ -52,10 +51,12 @@ def task_detail_view(request, task_id):
 
 # U z CRUD
 def task_update_view(request, task_id):
-    if not 0 < task_id <= len(TASKS):
+    tasks = Task.objects.filter(id=task_id)
+    if not tasks:
         raise Http404()
     else:
-        task = TASKS[task_id-1]
+        task = tasks[0]
+        task_id = task.id
 
     if request.method == "GET":
         return render(
@@ -68,16 +69,19 @@ def task_update_view(request, task_id):
 
         task_new_name = data.get('task_name')
         if task_new_name:
-            TASKS[task_id-1] = task_new_name
+            task.name = task_new_name
+            task.save()
 
         return redirect('crud_app2:task_list_view')
 
 
 def task_delete_view(request, task_id):
-    if not 0 < task_id <= len(TASKS):
+    tasks = Task.objects.filter(id=task_id)
+    if not tasks:
         raise Http404()
     else:
-        task = TASKS[task_id-1]
+        task = tasks[0]
+        task_id = task.id
 
     if request.method == "GET":
         return render(
@@ -90,6 +94,6 @@ def task_delete_view(request, task_id):
         data = request.POST
 
         if 'yes' in data:
-            TASKS.pop(task_id-1)
+            task.delete()
 
         return redirect('crud_app2:task_list_view')
