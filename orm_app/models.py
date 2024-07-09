@@ -15,3 +15,18 @@ class Country(models.Model):
 
 class Capital(models.Model):
     name = models.CharField(max_length=255)
+
+
+class Language(models.Model):
+    name = models.CharField(max_length=63)
+
+    def __str__(self):
+        return self.name
+
+
+class Framework(models.Model):
+    name = models.CharField(max_length=255)
+    language = models.ForeignKey('Language', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
