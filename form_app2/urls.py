@@ -11,5 +11,9 @@ urlpatterns = [
         views.contact_view_1,
         name='contact_view_1'
     ),
-
+    path(
+        'contact2/',
+        views.contact_view_2,
+        name='contact_view_2'
+    )
 ]

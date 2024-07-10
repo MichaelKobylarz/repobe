@@ -8,11 +8,16 @@
     <form method="POST">
         {% csrf_token %}
 
-        <label for="name">Imię</label>
-        <input type="text" name="name" id="name">
+        <div>
+            <label for="name">Imię</label>
+            <input type="text" name="name" id="name">
+        </div>
 
-        <label for="email">Email:</label>
-        <input type="email" name="email" id="email">
+
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email">
+        </div>
 
         <label for="category">Kategoria:</label>
         <select name="category" id="category">
@@ -25,7 +30,7 @@
         <input type="text" name="subject" id="subject">
 
         <label for="body">Treść:</label>
-        <input type="text" name="body" id="body">
+        <textarea name="body" id="body" cols="40" rows="10"></textarea>
 
         <label for="date">Ulubiona data:</label>
         <input type="date" name="date" id="date">
