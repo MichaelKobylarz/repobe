@@ -27,4 +27,5 @@ urlpatterns = [
     path('crud/', include('crud_app.urls')),
     path('orm/', include('orm_app.urls')),
     path('crud2/', include('crud_app2.urls')),
+    path('form2/', include('form_app2.urls')),
 ]
