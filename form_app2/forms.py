@@ -1,6 +1,9 @@
 from django import forms
 
+from form_app2.models import Message
 
+
+# Django form
 class MessageForm(forms.Form):
     CHOICES = [
         ("", "---------"),
@@ -15,3 +18,21 @@ class MessageForm(forms.Form):
     body = forms.CharField(label="Treść", widget=forms.Textarea)
     date = forms.DateField(label="Ulubiona data", widget=forms.widgets.NumberInput(attrs={'type': 'date'}))
     time = forms.TimeField(label="Ulubiony czas", widget=forms.widgets.NumberInput(attrs={'type': 'time'}))
+
+
+# Model form
+class MessageModelForm(forms.ModelForm):
+    class Meta:
+        model = Message
+        fields = '__all__'
+        labels = {
+            "name": "Imię",
+            "email": "Email"
+        }
+        widgets = {
+            "date": forms.widgets.NumberInput(attrs={'type': 'date'}),
+            "time": forms.widgets.NumberInput(attrs={'type': 'time'})
+        }
+
+
+# django-cripsy-form
