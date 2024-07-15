@@ -29,4 +29,5 @@ urlpatterns = [
     path('crud2/', include('crud_app2.urls')),
     path('form2/', include('form_app2.urls')),
     path('state/', include('state_app.urls')),
+    path('view/', include('view_app.urls')),
 ]
