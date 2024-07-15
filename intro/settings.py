@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'orm_app.apps.OrmAppConfig',
     'crud_app2.apps.CrudApp2Config',
     'form_app2.apps.FormApp2Config',
+    'state_app.apps.StateAppConfig',
 ]
 
 MIDDLEWARE = [
