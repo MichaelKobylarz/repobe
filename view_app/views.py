@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from django import views
 from django.views.generic import TemplateView
+
+from view_app import forms
 
 
 # widok funkcyjny
@@ -40,3 +42,69 @@ class HelloTemplateView(TemplateView):
         context['name'] = "Jan"
 
         return context
+
+
+# C z CRUD (czyli Create)
+# Widok funkcyjny
+def person_create_view(request):
+    if request.method == "GET":
+        form = forms.PersonForm()
+
+        return render(
+            request,
+            'view_app/create_person.html',
+            {
+                'form': form
+            }
+        )
+
+    elif request.method == "POST":
+        data = request.POST
+
+        form = forms.PersonForm(data)
+
+        if form.is_valid():
+            form.save()
+
+            return redirect('view_app:create_person_view')
+
+        return render(
+            request,
+            'view_app/create_person.html',
+            {
+                'form': form
+            }
+        )
+
+
+# Widok klasowy
+class PersonCreateView(views.View):
+    def get(self, request):
+        form = forms.PersonForm()
+
+        return render(
+            request,
+            'view_app/create_person.html',
+            {
+                'form': form
+            }
+        )
+
+    def post(self, request):
+        data = request.POST
+
+        form = forms.PersonForm(data)
+
+        if form.is_valid():
+            form.save()
+
+            return redirect('view_app:create_person_view2')
+
+        return render(
+            request,
+            'view_app/create_person.html',
+            {
+                'form': form
+            }
+        )
+
