@@ -56,16 +56,3 @@ class NotificationDeleteView(LoggingView):
         notification = get_object_or_404(Notification, pk=pk)
         notification.delete()
         return redirect('notification_list')
-
-# urls.py
-from django.urls import path
-from .views import (NotificationListView, NotificationDetailView, NotificationCreateView,
-                    NotificationUpdateView, NotificationDeleteView)
-
-urlpatterns = [
-    path('', NotificationListView.as_view(), name='notification_list'),
-    path('<int:pk>/', NotificationDetailView.as_view(), name='notification_detail'),
-    path('new/', NotificationCreateView.as_view(), name='notification_create'),
-    path('<int:pk>/edit/', NotificationUpdateView.as_view(), name='notification_update'),
-    path('<int:pk>/delete/', NotificationDeleteView.as_view(), name='notification_delete'),
-]

@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
 
 from django import views
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, CreateView
 
+from view_app import models
 from view_app import forms
 
 
@@ -108,3 +110,9 @@ class PersonCreateView(views.View):
             }
         )
 
+
+# Widok generyczny
+class PersonGenericCreateView(CreateView):
+    model = models.Person
+    fields = '__all__'
+    success_url = reverse_lazy('view_app:create_person_view3')

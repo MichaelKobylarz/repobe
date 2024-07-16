@@ -33,11 +33,3 @@ class ContactView(View):
 
     def http_method_not_allowed(self, request, *args, **kwargs):
         return HttpResponseNotAllowed(['GET', 'POST', 'PUT', 'DELETE'])
-
-# urls.py
-from django.urls import path
-from .views import ContactView
-
-urlpatterns = [
-    path('contact/', ContactView.as_view(), name='contact'),
-]

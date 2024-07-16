@@ -13,5 +13,6 @@ urlpatterns = [
     path('hello4/', TemplateView.as_view(template_name='view_app/hello.html'), name='hello4'),
 
     path('create-person/', views.person_create_view, name='create_person_view'),
-    path('create-person2/', views.PersonCreateView.as_view(), name='create_person_view2')
+    path('create-person2/', views.PersonCreateView.as_view(), name='create_person_view2'),
+    path('create-person3/', views.PersonGenericCreateView.as_view(), name='create_person_view3'),
 ]
