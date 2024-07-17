@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from django.contrib.auth import get_user_model, authenticate, login, logout
 
@@ -39,3 +39,49 @@ def index(request):
         request,
         'auth_app/index.html'
     )
+
+
+def home(request):
+    # gdybyśmy chcieli niedopuszczać niezalogowanych użytkowników
+    # if not request.user.is_authenticated:
+    #     return redirect('auth_app:login_view')
+
+    return render(
+        request,
+        'auth_app/home.html'
+    )
+
+
+def login_view(request):
+    if request.method == "GET":
+        return render(
+            request,
+            'auth_app/login.html'
+        )
+    elif request.method == "POST":
+        data = request.POST
+
+        username = data.get('username')
+        password = data.get('password')
+
+        user = authenticate(
+            username=username,
+            password=password
+        )
+
+        if user:
+            login(request, user)
+
+            return redirect('auth_app:home')
+
+        return render(
+            request,
+            'auth_app/login.html'
+        )
+
+
+def logout_view(request):
+    if request.method == "POST":
+        logout(request)
+
+    return redirect('auth_app:login_view')
