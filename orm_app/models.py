@@ -48,3 +48,21 @@ class Movie(models.Model):
 
     def __str__(self):
         return self.title
+
+class Person(models.Model):
+    name = models.CharField(max_length=128)
+
+    def str(self):
+        return self.name
+
+class Band(models.Model):
+    name = models.CharField(max_length=128)
+    members = models.ManyToManyField(Person, through='Membership')
+
+    def str(self):
+        return self.name
+
+class Membership(models.Model):
+    person = models.ForeignKey(Person, on_delete=models.CASCADE)
+    group = models.ForeignKey(Band, on_delete=models.CASCADE)
+    date_joined = models.DateField()
