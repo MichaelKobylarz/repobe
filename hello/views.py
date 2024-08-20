@@ -5,6 +5,28 @@ from django.shortcuts import render, HttpResponse
 from hello.utils import Cow
 
 
+
+
+# Create your views here.
+def first_view(request):
+    return render(
+        request,
+        'first.html'
+    )
+
+
+def second_view(request):
+    return render(
+        request,
+        'second.html',
+    )
+
+
+def third_view(request):
+    return render(
+        request,
+        'third.html',
+    )
 # Create your views here.
 def hello_view(request):
     return HttpResponse("Witaj świecie!")
@@ -27,6 +49,8 @@ def hi_view(request):
 def hi2_view(request):
     return render(request, 'hello.html')
 
+#def hello_app_view(request):
+   # return render(request, 'first.html')
 
 def jurek_view(request):
     return HttpResponse("Witaj, Jurek!")

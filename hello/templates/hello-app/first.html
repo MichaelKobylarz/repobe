@@ -1,20 +1,22 @@
-{% load static %}
+load static
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'scripts/script.js' %}"></script>
 </head>
 <body>
 
-     <center>
+        <center>
             <img src="{% static 'img/1.png' %}">
         </center>
 
     <h2>To jest pierwsza strona</h2>
     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque ex id impedit non, numquam quas unde? Accusantium asperiores, dolor ea et incidunt minima nam non porro qui totam ut voluptatum!
 
-    <p>Przejdź do strony <a href="{% url 'link_app:second' %}">drugiej</a>.</p>
+    <p>Przejdź do strony <a href="{% url 'hello_app:second' %}">drugiej</a>.</p>
 
 </body>
 </html>

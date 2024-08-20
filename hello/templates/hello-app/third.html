@@ -1,19 +1,20 @@
-{% load static %}
+load static
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'scripts/script.js' %}"></script>
 </head>
 <body>
      <center>
             <img src="{% static 'img/3.png' %}">
         </center>
 
-
     <h2>To jest trzeci widok z parametrem {{ param }}</h2>
     Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, aliquid amet aperiam consectetur delectus eveniet hic id nihil non, odit pariatur placeat quas qui quia quidem quos repellendus voluptate voluptatibus.
 
-    <p>Przejdź do strony <a href="{% url 'link_app:first' %}">pierwszej</a>.</p>
+    <p>Przejdź do strony <a href="{% url 'hello_app:first' %}">pierwszej</a>.</p>
 </body>
 </html>

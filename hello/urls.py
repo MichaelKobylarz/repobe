@@ -20,4 +20,9 @@ urlpatterns = [
 
     path('isitnewyear/', views.is_it_new_year),
     path('collection/', views.collection_view),
+
+    path('first/', views.first_view),
+    path('second/', views.second_view),
+    path('third/', views.third_view),
+
 ]
