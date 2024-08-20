@@ -66,3 +66,14 @@ class Membership(models.Model):
     person = models.ForeignKey(Person, on_delete=models.CASCADE)
     group = models.ForeignKey(Band, on_delete=models.CASCADE)
     date_joined = models.DateField()
+
+class Product(models.Model):
+    title = models.CharField(max_length=100)
+    manufacturer = models.CharField(max_length=100)
+    price = models.IntegerField()
+
+    a = models.CharField(max_length=100)
+    b = models.CharField(max_length=100)
+    c = models.CharField(max_length=100)
+
+    product_secret_id = models.CharField(max_length=100)
