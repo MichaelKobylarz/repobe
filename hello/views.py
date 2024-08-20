@@ -8,6 +8,11 @@ from hello.utils import Cow
 
 
 # Create your views here.
+
+
+
+
+
 def first_view(request):
     return render(
         request,
